@@ -7,7 +7,7 @@ import { GroupsModule } from './groups/groups.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Group } from './groups/entities/group.entity';
-import { GroupMember } from './groups/entities/group-member.entity';
+import { UserGroups } from './groups/entities/group-member.entity';
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import { GroupMember } from './groups/entities/group-member.entity';
       username: 'user',
       password: 'password',
       database: 'mydatabase',
-      entities: [User, Group, GroupMember],
+      entities: [User, Group, UserGroups],
       synchronize: false,
       logging: false,
     }),

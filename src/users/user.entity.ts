@@ -1,7 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { GroupMember } from '../groups/entities/group-member.entity';
-
-export type UserStatus = 'pending' | 'active' | 'blocked';
+import { UserGroups } from '../groups/entities/group-member.entity';
 
 @Entity('users')
 export class User {
@@ -14,13 +12,6 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column({
-    type: 'enum',
-    enum: ['pending', 'active', 'blocked'],
-    default: 'pending',
-  })
-  status: UserStatus;
-
-  @OneToMany(() => GroupMember, (gm) => gm.user)
-  memberships: GroupMember[];
+  @OneToMany(() => UserGroups, (gm) => gm.user)
+  memberships: UserGroups[];
 }

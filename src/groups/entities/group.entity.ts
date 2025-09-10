@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { GroupMember } from './group-member.entity';
+import { UserGroups } from './group-member.entity';
 
 export type GroupStatus = 'empty' | 'notEmpty';
 
@@ -14,6 +14,6 @@ export class Group {
   @Column({ type: 'enum', enum: ['empty', 'notEmpty'], default: 'empty' })
   status: GroupStatus;
 
-  @OneToMany(() => GroupMember, (gm) => gm.group)
-  members: GroupMember[];
+  @OneToMany(() => UserGroups, (gm) => gm.group)
+  members: UserGroups[];
 }

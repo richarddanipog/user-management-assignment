@@ -2,8 +2,8 @@ import { Entity, ManyToOne, PrimaryColumn, JoinColumn } from 'typeorm';
 import { User } from '../../users/user.entity';
 import { Group } from './group.entity';
 
-@Entity('group_members')
-export class GroupMember {
+@Entity('user_groups')
+export class UserGroups {
   @PrimaryColumn({ name: 'user_id' })
   userId: number;
 
